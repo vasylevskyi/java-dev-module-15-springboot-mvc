@@ -15,7 +15,7 @@ import java.util.*;
 public class NoteService {
     private final Note note;
     private Map<Long, Note> notes = new TreeMap<>();
-    private  final ApplicationContext context;
+    private ApplicationContext context;
 
     Note add(Note note) {
         long randomID = (long )(Math.random() * (Long.MAX_VALUE));

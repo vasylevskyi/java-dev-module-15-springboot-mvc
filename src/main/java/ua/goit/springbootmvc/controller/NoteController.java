@@ -9,6 +9,11 @@ import ua.goit.springbootmvc.service.NoteService;
 @Controller
 public class NoteController {
     private final NoteService noteService;
-/*    public ModelAndView postNote()*/
+/*    public ModelAndView getCurrentTime() {
+        ModelAndView result = new ModelAndView("test");
+        result.addObject("time", LocalDateTime.now()
+                .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        return result;
+    }*/
 
 }

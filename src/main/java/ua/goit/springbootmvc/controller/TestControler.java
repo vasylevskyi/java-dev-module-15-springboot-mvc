@@ -11,10 +11,7 @@ import java.time.format.DateTimeFormatter;
 @Controller
 public class TestControler {
     @RequestMapping(method = RequestMethod.GET, value = "/test")
-    public ModelAndView getCurrentTime() {
-        ModelAndView result = new ModelAndView("test");
-        result.addObject("time", LocalDateTime.now()
-                .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-        return result;
+    public String getTestPage() {
+        return "test";
     }
 }
