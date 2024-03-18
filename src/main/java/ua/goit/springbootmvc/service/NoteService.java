@@ -15,9 +15,9 @@ import java.util.*;
 public class NoteService {
     private final Note note;
     private Map<Long, Note> notes = new TreeMap<>();
-    private ApplicationContext context;
+    private final ApplicationContext context;
 
-    Note add(Note note) {
+    public Note add(Note note) {
         long randomID = (long )(Math.random() * (Long.MAX_VALUE));
         note.setId(randomID);
         notes.put(randomID, note);
@@ -27,7 +27,7 @@ public class NoteService {
         return notes;
     }
 
-    void deleteById(long id) {
+    public void deleteNoteById(long id) {
         Note noteById = notes.get(id);
 
         if (noteById == null) {
@@ -37,11 +37,11 @@ public class NoteService {
         }
     }
 
-    void update(Note note) {
+    public void updateNote(Note note) {
         Long noteID = note.getId();
         Note noteById = context
                 .getBean(NoteService.class)
-                .getById(noteID);
+                .getNoteById(noteID);
         if (noteById == null) {
             throw new RuntimeException("Note not found, id = " + noteID);
         } else {
@@ -49,7 +49,7 @@ public class NoteService {
         }
     }
 
-    Note getById(long id) {
+    public Note getNoteById(long id) {
         Note noteById = notes.get(id);
 
         if (noteById == null) {
